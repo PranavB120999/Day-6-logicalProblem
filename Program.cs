@@ -1,37 +1,35 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading;
 
 namespace Day6LogicalProblem
 {
     internal class Program
     {
-        public static void CouponNumber()
+        public static void PerfectNumber()
         {
-            Greeting message for logical program
-            Console.WriteLine("Please Enter how many Random distinct number you want: ");
+            int temp, sum = 0;
+            Console.Write("enter the Number");
             int num = int.Parse(Console.ReadLine());
-            int[] ran = new int[num];
-            Console.WriteLine("Enter the Starting range of Random Number you want");
-            int str = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the ending range of Random numnber you want ");
-            int end = int.Parse(Console.ReadLine());
-            for (int i = 0; i < num; i++)
+            temp = num;
+            for (int i = 1; i < num; i++)
             {
-                Random random = new Random();
-                int n = random.Next(str, end);
-                ran[i] = n;
+                if (num % i == 0)
+                {
+                    sum = sum + i;
+                }
             }
-            Console.WriteLine("All Random Distinct Numbers are: ");
-            foreach (int j in ran)
+            if (sum == temp)
             {
-                Console.WriteLine(j);
+                Console.WriteLine("Entered number " + num + " is a perfect number");
+            }
+            else
+            {
+                Console.WriteLine("Entered number is not a perfect number");
             }
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Welcome to Coupon Number Program");
-            Program.CouponNumber();
+            Console.WriteLine("Hello, Welcome to perfect number Program");
+            Program.PerfectNumber();
         }
     }
 }
