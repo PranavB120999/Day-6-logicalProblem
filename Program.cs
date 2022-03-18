@@ -1,37 +1,27 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading;
 
 namespace Day6LogicalProblem
 {
     internal class Program
     {
-        public static void CouponNumber()
+        public static void Fibonacci()
         {
-            Greeting message for logical program
-            Console.WriteLine("Please Enter how many Random distinct number you want: ");
-            int num = int.Parse(Console.ReadLine());
-            int[] ran = new int[num];
-            Console.WriteLine("Enter the Starting range of Random Number you want");
-            int str = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the ending range of Random numnber you want ");
-            int end = int.Parse(Console.ReadLine());
-            for (int i = 0; i < num; i++)
+            int num1 = 0, num2 = 1, temp, i, number;
+            Console.Write("Enter the number of elements: ");
+            number = int.Parse(Console.ReadLine());
+            Console.Write(num1 + " " + num2 + " ");
+            for (i = 2; i < number; ++i)
             {
-                Random random = new Random();
-                int n = random.Next(str, end);
-                ran[i] = n;
-            }
-            Console.WriteLine("All Random Distinct Numbers are: ");
-            foreach (int j in ran)
-            {
-                Console.WriteLine(j);
+                temp = num1 + num2;
+                Console.Write(temp + " ");
+                num1 = num2;
+                num2 = temp;
             }
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Welcome to Coupon Number Program");
-            Program.CouponNumber();
+            Console.WriteLine("Hello, Welcome to Fibonacci Series");
+            Program.Fibonacci();
         }
     }
 }
