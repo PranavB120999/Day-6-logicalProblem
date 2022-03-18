@@ -1,37 +1,35 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading;
 
 namespace Day6LogicalProblem
 {
     internal class Program
     {
-        public static void CouponNumber()
+        public static void PrimeNumber()
         {
-            Greeting message for logical program
-            Console.WriteLine("Please Enter how many Random distinct number you want: ");
+            Console.WriteLine("Enter a Number to Check prime or not: ");
             int num = int.Parse(Console.ReadLine());
-            int[] ran = new int[num];
-            Console.WriteLine("Enter the Starting range of Random Number you want");
-            int str = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the ending range of Random numnber you want ");
-            int end = int.Parse(Console.ReadLine());
-            for (int i = 0; i < num; i++)
+            int count = 0;
+            for (int i = 1; i <= num; i++)
             {
-                Random random = new Random();
-                int n = random.Next(str, end);
-                ran[i] = n;
+                if (num % i == 0)
+                {
+                    count++;
+                }
             }
-            Console.WriteLine("All Random Distinct Numbers are: ");
-            foreach (int j in ran)
+            if (count == 2)
             {
-                Console.WriteLine(j);
+                Console.WriteLine("Enetred Number " + num + " Is a prime number");
             }
+            else
+            {
+                Console.WriteLine("Not a prime number");
+            }
+            Console.ReadLine();
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Welcome to Coupon Number Program");
-            Program.CouponNumber();
+            Console.WriteLine("Hello, Welcome to Prime number Program");
+            Program.PrimeNumber();
         }
     }
 }
